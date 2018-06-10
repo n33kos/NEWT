@@ -1,3 +1,12 @@
+/**
+ * A class for creating a vertex or fragment shader.
+ * @class Shader
+ * @param {Object} config - configuration object
+ * @param {string} config.context - The webgl context for the shader
+ * @param {string} config.source - The shader source code
+ * @param {string} config.type - The shader type (VERTEX_SHADER, FRAGMENT_SHADER)
+ */
+
 export default class {
   constructor({
     context = null,

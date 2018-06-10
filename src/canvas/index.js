@@ -1,3 +1,13 @@
+/**
+ * * A class for initializing a canvas in webGL context
+ * @class Canvas
+ * @param {Object} config - configuration object
+ * @param {string} config.element - The id of the canvas element to initialize
+ * @param {number} config.height - The height of the canvas element
+ * @param {number} config.width - The width of the canvas element
+ * @param {array}  config.color - The initial background color [r, g, b, a]
+ */
+
 export default class {
   constructor({
     element = null,
