@@ -1,2 +1,2 @@
 # WebglToolkit
-A toolkit to assist WebGL developmentA toolkit to 
+A toolkit to assist WebGL development.
