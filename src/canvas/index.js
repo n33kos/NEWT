@@ -1,5 +1,5 @@
 /**
- * * A class for initializing a canvas in webGL context
+ * A class for initializing a canvas in webGL context
  * @class Canvas
  * @param {Object} config - configuration object
  * @param {string} config.element - The id of the canvas element to initialize
