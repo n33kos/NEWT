@@ -10,7 +10,7 @@ A class for creating a vertex or fragment shader.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| config | <code>Object</code> | A configuration object |
+| config | <code>Object</code> | configuration object |
 | config.context | <code>string</code> | The webgl context for the shader |
 | config.source | <code>string</code> | The shader source code |
 | config.type | <code>string</code> | The shader type (VERTEX_SHADER, FRAGMENT_SHADER) |
