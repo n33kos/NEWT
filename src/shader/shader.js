@@ -13,7 +13,7 @@ export default class {
     source  = null,
     type    = null,
   }) {
-    // Crete new shader of the provided a type
+    // Create new shader of the provided a type
     let shader = context.createShader(context[type]);
 
     // Set the shader source code

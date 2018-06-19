@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\"",
     "build": "webpack",
-    "document": "jsdoc2md src/WebglToolkit.js > src/README.md && jsdoc2md src/canvas/index.js > src/canvas/README.md && jsdoc2md src/shader/index.js > src/shader/README.md",
+    "document": "jsdoc2md src/WebglToolkit.js > src/README.md && jsdoc2md src/canvas/canvas.js > src/canvas/README.md && jsdoc2md src/shader/shader.js > src/shader/README.md && jsdoc2md src/text/text2D.js > src/text/README.md",
     "release": "npm run test && npm run build && npm run document",
     "serve": "http-server"
   },

@@ -24,6 +24,7 @@ export default class {
 
     try {
       this.context = canvas.getContext('webgl');
+      this.context2D = this.create2DContext(canvas, height, width);
       this.setElementDimensions(canvas, height, width);
       this.setContextDimensions(this.context, height, width);
       this.setCanvasBackground(this.context, color);
@@ -46,5 +47,16 @@ export default class {
   setCanvasBackground(context, color) {
     context.clearColor(...color);
     context.clear(context.COLOR_BUFFER_BIT|context.DEPTH_BUFFER_BIT);
+  }
+
+  create2DContext(canvas, height, width) {
+    const canvas2D = document.createElement("canvas");
+
+    canvas2D.setAttribute('id', `${canvas.id}2D`);
+    canvas2D.setAttribute('width', width);
+    canvas2D.setAttribute('height', height);
+    canvas2D.style.cssText = 'position: absolute;';
+    canvas.parentNode.insertBefore(canvas2D, canvas);
+    return canvas2D.getContext('2d');
   }
 }

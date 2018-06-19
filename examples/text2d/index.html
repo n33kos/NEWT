@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>WebglToolkit Shader Example</title>
+
+    <meta name="description" content="Examples for webgl tools">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="../../dist/WebglToolkit.min.js"></script>
+  </head>
+
+  <body>
+    <h1>WebglToolkit Text2D Example</h1>
+
+    <canvas id="view"></canvas>
+
+  </body>
+
+  <script>
+    var canvas = new WebglToolkit.Canvas({
+      color   : [0.9, 0.9, 0.9, 1],
+      element : 'view',
+      height  : 600,
+      width   : 600,
+    });
+    var ctx = canvas.context;
+
+    var text = new WebglToolkit.Text2D({
+      canvas,
+      color    : new WebglToolkit.Vector4(0, 0, 0, 1),
+      font     : '20px sans-serif',
+      position : new WebglToolkit.Vector2(300, 300),
+      text     : 'Hello World!',
+    });
+
+    var text2 = new WebglToolkit.Text2D({
+      canvas,
+      color    : new WebglToolkit.Vector4(255, 100, 0, 1),
+      font     : '25px sans-serif',
+      position : new WebglToolkit.Vector2(400, 200),
+      text     : 'Hello World!',
+    });
+
+    var text2 = new WebglToolkit.Text2D({
+      canvas,
+      color    : new WebglToolkit.Vector4(100, 100, 255, 1),
+      font     : '15px sans-serif',
+      position : new WebglToolkit.Vector2(100, 400),
+      text     : 'Hello World!',
+    });
+
+    var text2 = new WebglToolkit.Text2D({
+      canvas,
+      color    : new WebglToolkit.Vector4(150, 100, 100, 1),
+      font     : '20px sans-serif',
+      position : new WebglToolkit.Vector2(100, 100),
+      text     : 'Hello World!',
+    });
+  </script>
+</html>
