@@ -4,9 +4,10 @@
  */
 
 // ----Class Imports----
-import Canvas   from './canvas/canvas';
-import Shader   from './shader/shader';
-import Text2D   from './text/text2d';
+import Canvas  from './canvas/canvas';
+import Program from './shader/program';
+import Shader  from './shader/shader';
+import Text2D  from './text/text2d';
 
 // ----Function Imports----
 import DegToRad from './utils/math/radians';
@@ -18,6 +19,7 @@ import Vector4  from './utils/math/vector4';
 window.NEWT = {
   // Classes----------
   Canvas,
+  Program,
   Shader,
   Text2D,
 

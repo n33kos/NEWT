@@ -24,7 +24,7 @@ export default class {
 
     // Check COMPILE_STATUS shader parameter to see if it compiled successfully
     if (!context.getShaderParameter(shader, context.COMPILE_STATUS)) {
-      console.error('Could not compile vertex shader', context.getShaderInfoLog(shader));
+      console.error(`Could not compile ${type}`, context.getShaderInfoLog(shader));
       return;
     }
 

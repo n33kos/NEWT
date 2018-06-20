@@ -70,5 +70,11 @@
       type    : 'FRAGMENT_SHADER',
     });
     console.log(fragmentShader);
+
+    var shaderProgram = new NEWT.Program({
+      context : ctx,
+      shaders : [vertexShader, fragmentShader],
+    });
+    console.log(shaderProgram);
   </script>
 </html>
