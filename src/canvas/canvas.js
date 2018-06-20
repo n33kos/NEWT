@@ -30,7 +30,7 @@ export default class {
       this.element = canvas;
 
       this.setElementDimensions(canvas, height, width);
-      this.setContextDimensions(context, height, width);
+      this.setContextViewport(context);
       this.clearCanvas(context, color);
     } catch(e) {
       console.log('Could Not Initialize WebGL');
@@ -43,9 +43,8 @@ export default class {
     canvas.setAttribute('height', height);
   }
 
-  setContextDimensions(context, height, width) {
-    context.viewportWidth = height;
-    context.viewportHeight = width;
+  setContextViewport(context) {
+    context.viewport(0, 0, context.drawingBufferWidth, context.drawingBufferHeight);
   }
 
   clearCanvas(context = this.context, color = this.color) {
@@ -54,13 +53,13 @@ export default class {
   }
 
   create2DContext(canvas, height, width) {
-    const canvas2D = document.createElement("canvas");
+    const canvas2D = document.createElement('canvas');
 
     canvas2D.setAttribute('id', `${canvas.id}2D`);
-    canvas2D.setAttribute('width', width);
-    canvas2D.setAttribute('height', height);
-    canvas2D.style.cssText = 'position: absolute;';
+    this.setElementDimensions(canvas2D, height, width);
+    canvas2D.style.position = "absolute";
     canvas.parentNode.insertBefore(canvas2D, canvas);
+
     return canvas2D.getContext('2d');
   }
 }

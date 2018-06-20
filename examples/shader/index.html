@@ -20,12 +20,10 @@
         transform: translateX(-50%);
       }
 
-      canvas {
-        height: 100%;
+      #view {
         left: 0;
         position: absolute;
         top: 0;
-        width: 100%;
       }
     </style>
 
@@ -64,10 +62,10 @@
 
   <script>
     var canvas = new NEWT.Canvas({
-      element: 'view',
-      height: window.outerHeight,
-      width: window.outerWidth,
-      color: new NEWT.Vector4(0.5, 0.4, 0.7, 1.0),
+      element : 'view',
+      height  : window.innerHeight,
+      width   : window.innerWidth,
+      color   : new NEWT.Vector4(0.5, 0.4, 0.7, 1.0),
     });
     var ctx = canvas.context;
 
