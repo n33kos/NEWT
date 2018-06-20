@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-    entry: './src/WebglToolkit.js',
+    entry: './src/NEWT.js',
     mode: 'production',
     module: {
         rules : [
@@ -17,7 +17,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'WebglToolkit.min.js'
+        filename: 'NEWT.min.js'
     },
     stats: {
         colors: true

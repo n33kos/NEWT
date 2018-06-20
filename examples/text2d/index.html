@@ -4,25 +4,25 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>WebglToolkit Shader Example</title>
+    <title>Shader Example</title>
 
     <meta name="description" content="Examples for webgl tools">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../styles.css">
 
-    <script src="../../dist/WebglToolkit.min.js"></script>
+    <script src="../../dist/NEWT.min.js"></script>
   </head>
 
   <body>
-    <h1>WebglToolkit Text2D Example</h1>
+    <h1>Text2D Example</h1>
 
     <canvas id="view"></canvas>
 
   </body>
 
   <script>
-    var canvas = new WebglToolkit.Canvas({
+    var canvas = new NEWT.Canvas({
       color   : [0.9, 0.9, 0.9, 1],
       element : 'view',
       height  : 600,
@@ -30,35 +30,35 @@
     });
     var ctx = canvas.context;
 
-    var text = new WebglToolkit.Text2D({
+    var text = new NEWT.Text2D({
       canvas,
-      color    : new WebglToolkit.Vector4(0, 0, 0, 1),
+      color    : new NEWT.Vector4(0, 0, 0, 1),
       font     : '20px sans-serif',
-      position : new WebglToolkit.Vector2(300, 300),
+      position : new NEWT.Vector2(300, 300),
       text     : 'Hello World!',
     });
 
-    var text2 = new WebglToolkit.Text2D({
+    var text2 = new NEWT.Text2D({
       canvas,
-      color    : new WebglToolkit.Vector4(255, 100, 0, 1),
+      color    : new NEWT.Vector4(255, 100, 0, 1),
       font     : '25px sans-serif',
-      position : new WebglToolkit.Vector2(400, 200),
+      position : new NEWT.Vector2(400, 200),
       text     : 'Hello World!',
     });
 
-    var text2 = new WebglToolkit.Text2D({
+    var text2 = new NEWT.Text2D({
       canvas,
-      color    : new WebglToolkit.Vector4(100, 100, 255, 1),
+      color    : new NEWT.Vector4(100, 100, 255, 1),
       font     : '15px sans-serif',
-      position : new WebglToolkit.Vector2(100, 400),
+      position : new NEWT.Vector2(100, 400),
       text     : 'Hello World!',
     });
 
-    var text2 = new WebglToolkit.Text2D({
+    var text2 = new NEWT.Text2D({
       canvas,
-      color    : new WebglToolkit.Vector4(150, 100, 100, 1),
+      color    : new NEWT.Vector4(150, 100, 100, 1),
       font     : '20px sans-serif',
-      position : new WebglToolkit.Vector2(100, 100),
+      position : new NEWT.Vector2(100, 100),
       text     : 'Hello World!',
     });
   </script>

@@ -1,6 +1,6 @@
 /**
  * A module to assist WebGL development.
- * @module WebglToolkit
+ * @module NEWT
  */
 
 // ----Class Imports----
@@ -15,7 +15,7 @@ import Vector2  from './utils/math/vector2';
 import Vector3  from './utils/math/vector3';
 import Vector4  from './utils/math/vector4';
 
-window.WebglToolkit = {
+window.NEWT = {
   // Classes----------
   Canvas,
   Shader,

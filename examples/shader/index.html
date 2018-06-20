@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>WebglToolkit Shader Example</title>
+    <title>Shader Example</title>
 
     <meta name="description" content="Examples for webgl tools">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../styles.css">
 
-    <script src="../../dist/WebglToolkit.min.js"></script>
+    <script src="../../dist/NEWT.min.js"></script>
 
     <script id="vertex-shader" type="not-javascript">
       precision mediump float;
@@ -42,14 +42,14 @@
   </head>
 
   <body>
-    <h1>WebglToolkit Shader Example</h1>
+    <h1>Shader Example</h1>
 
     <canvas id="view"></canvas>
 
   </body>
 
   <script>
-    var canvas = new WebglToolkit.Canvas({
+    var canvas = new NEWT.Canvas({
       element: 'view',
       height: 600,
       width: 600,
@@ -57,14 +57,14 @@
     });
     var ctx = canvas.context;
 
-    var vertexShader = new WebglToolkit.Shader({
+    var vertexShader = new NEWT.Shader({
       context : ctx,
       source  : document.getElementById("vertex-shader").text,
       type    : 'VERTEX_SHADER',
     });
     console.log(vertexShader);
 
-    var fragmentShader = new WebglToolkit.Shader({
+    var fragmentShader = new NEWT.Shader({
       context : ctx,
       source  : document.getElementById("fragment-shader").text,
       type    : 'FRAGMENT_SHADER',

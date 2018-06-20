@@ -1,14 +1,14 @@
 {
-  "name": "WebglToolkit",
-  "version": "0.0.2",
+  "name": "NEWT",
+  "version": "0.0.3",
   "description": "A toolkit to assist WebGL development",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\"",
     "build": "webpack",
-    "document": "jsdoc2md src/WebglToolkit.js > src/README.md && jsdoc2md src/canvas/canvas.js > src/canvas/README.md && jsdoc2md src/shader/shader.js > src/shader/README.md && jsdoc2md src/text/text2D.js > src/text/README.md",
-    "release": "npm run test && npm run build && npm run document",
-    "serve": "http-server"
+    "document": "jsdoc2md src/NEWT.js > src/README.md && jsdoc2md src/canvas/canvas.js > src/canvas/README.md && jsdoc2md src/shader/shader.js > src/shader/README.md && jsdoc2md src/text/text2D.js > src/text/README.md",
+    "deploy": "npm run test && npm run build && npm run document",
+    "serve": "http-server",
+    "test": "echo \"Error: no test specified\""
   },
   "author": "n33kos",
   "license": "ISC",

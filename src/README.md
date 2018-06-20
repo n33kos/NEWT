@@ -1,5 +1,5 @@
-<a name="module_WebglToolkit"></a>
+<a name="module_NEWT"></a>
 
-## WebglToolkit
+## NEWT
 A module to assist WebGL development.
 
