@@ -1,6 +1,6 @@
 /**
  * A class for creating a shader program from an array of shaders
- * @class Program
+ * @class ShaderProgram
  * @param {Object} config - configuration object
  * @param {string} config.context - The webgl context for the shader
  * @param {Array} config.shaders - an array of Shader objects, Will be added to the program in index order
@@ -35,6 +35,7 @@ export default class {
       return;
     }
 
-    return program;
+    this.shaders = shaders;
+    this.program = program;
   }
 }

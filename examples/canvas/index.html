@@ -16,9 +16,7 @@
 
   <body>
     <h1>Canvas Example</h1>
-
     <canvas id="view"></canvas>
-
   </body>
 
   <script>
@@ -26,7 +24,7 @@
       element: 'view',
       height: 600,
       width: 600,
-      color: [0.2, 1.0, 0.7, 1.0],
+      color: new NEWT.Vector4(0.2, 1.0, 0.7, 1.0),
     });
     var ctx = canvas.context;
   </script>

@@ -2,18 +2,18 @@
  * A class for initializing a canvas in webGL context
  * @class Canvas
  * @param {Object} config - configuration object
- * @param {string} config.element - The id of the canvas element to initialize
  * @param {number} config.height - The height of the canvas element
  * @param {number} config.width - The width of the canvas element
- * @param {array}  config.color - The initial background color [r, g, b, a]
+ * @param {string} config.element - The id of the canvas element to initialize
+ * @param {Vector4} config.color - The initial background color Vector4(r, g, b, a)
  */
 
 export default class {
   constructor({
+    color = new Vector4(1.0, 1.0, 1.0, 1.0),
     element = null,
     height = null,
     width = null,
-    color = [1.0, 1.0, 1.0, 1.0],
   }) {
     if (element === null) {
       console.log('Please pass a canvas element to initialize');
@@ -21,13 +21,17 @@ export default class {
     }
 
     const canvas = document.getElementById(element);
+    const context = canvas.getContext('webgl');
 
     try {
-      this.context = canvas.getContext('webgl');
+      this.color = color;
+      this.context = context;
       this.context2D = this.create2DContext(canvas, height, width);
+      this.element = canvas;
+
       this.setElementDimensions(canvas, height, width);
-      this.setContextDimensions(this.context, height, width);
-      this.setCanvasBackground(this.context, color);
+      this.setContextDimensions(context, height, width);
+      this.clearCanvas(context, color);
     } catch(e) {
       console.log('Could Not Initialize WebGL');
       console.error(e);
@@ -44,8 +48,8 @@ export default class {
     context.viewportHeight = width;
   }
 
-  setCanvasBackground(context, color) {
-    context.clearColor(...color);
+  clearCanvas(context = this.context, color = this.color) {
+    context.clearColor(color.x, color.y, color.z, color.w);
     context.clear(context.COLOR_BUFFER_BIT|context.DEPTH_BUFFER_BIT);
   }
 

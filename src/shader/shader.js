@@ -28,6 +28,7 @@ export default class {
       return;
     }
 
-    return shader;
+    this.source = source;
+    this.shader = shader;
   }
 }

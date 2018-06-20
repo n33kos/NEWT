@@ -23,8 +23,6 @@ export default class {
     this.font     = font;
     this.position = position;
     this.text     = text;
-
-    this.draw();
   }
 
   draw() {

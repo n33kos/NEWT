@@ -16,14 +16,12 @@
 
   <body>
     <h1>Text2D Example</h1>
-
     <canvas id="view"></canvas>
-
   </body>
 
   <script>
     var canvas = new NEWT.Canvas({
-      color   : [0.9, 0.9, 0.9, 1],
+      color   : new NEWT.Vector4(0.9, 0.9, 0.9, 1),
       element : 'view',
       height  : 600,
       width   : 600,
@@ -37,6 +35,7 @@
       position : new NEWT.Vector2(300, 300),
       text     : 'Hello World!',
     });
+    text.draw();
 
     var text2 = new NEWT.Text2D({
       canvas,
@@ -45,21 +44,24 @@
       position : new NEWT.Vector2(400, 200),
       text     : 'Hello World!',
     });
+    text2.draw();
 
-    var text2 = new NEWT.Text2D({
+    var text3 = new NEWT.Text2D({
       canvas,
       color    : new NEWT.Vector4(100, 100, 255, 1),
       font     : '15px sans-serif',
       position : new NEWT.Vector2(100, 400),
       text     : 'Hello World!',
     });
+    text3.draw();
 
-    var text2 = new NEWT.Text2D({
+    var text4 = new NEWT.Text2D({
       canvas,
       color    : new NEWT.Vector4(150, 100, 100, 1),
       font     : '20px sans-serif',
       position : new NEWT.Vector2(100, 100),
       text     : 'Hello World!',
     });
+    text4.draw();
   </script>
 </html>
