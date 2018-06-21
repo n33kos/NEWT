@@ -1,3 +1,17 @@
 * {
   text-align: center;
 }
+
+canvas.Fill {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+canvas.CenterSixHundred {
+  height: 600px;
+  margin: 0 auto;
+  width: 600px;
+}

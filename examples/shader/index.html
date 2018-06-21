@@ -19,12 +19,6 @@
         top: 0;
         transform: translateX(-50%);
       }
-
-      #view {
-        left: 0;
-        position: absolute;
-        top: 0;
-      }
     </style>
 
     <script id="vertex-shader" type="not-javascript">
@@ -52,11 +46,10 @@
         gl_FragColor = vec4(fragColor, 1);
       }
     </script>
-
   </head>
 
   <body>
-    <canvas id="view"></canvas>
+    <canvas id="view" class="Fill"></canvas>
     <h1>Shader Example</h1>
   </body>
 
