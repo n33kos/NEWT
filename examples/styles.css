@@ -1,5 +1,5 @@
-* {
-  text-align: center;
+body {
+  padding: 30px;
 }
 
 canvas.Fill {

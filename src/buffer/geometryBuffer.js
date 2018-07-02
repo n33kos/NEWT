@@ -1,5 +1,5 @@
 /**
- * A class for initializing a canvas in webGL context
+ * A class for creating a geometry buffer .
  * @class GeometryBuffer
  * @param {Object} config - configuration object
  * @param {Context} config.context - The webgl context

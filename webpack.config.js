@@ -17,7 +17,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'NEWT.min.js'
+        filename: `NEWT-${process.env.npm_package_version}.min.js`
     },
     stats: {
         colors: true

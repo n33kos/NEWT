@@ -5,7 +5,7 @@
 <a name="new_GeometryBuffer_new"></a>
 
 ### new GeometryBuffer(config)
-A class for initializing a canvas in webGL context
+A class for creating a geometry buffer .
 
 
 | Param | Type | Description |

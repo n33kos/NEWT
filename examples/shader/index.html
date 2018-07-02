@@ -10,42 +10,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="../styles.css">
-
-    <script src="../../dist/NEWT.min.js"></script>
     <style>
       h1 {
         left: 50%;
         position: absolute;
         top: 0;
         transform: translateX(-50%);
+        z-index: 1;
       }
     </style>
 
-    <script id="vertex-shader" type="not-javascript">
-      precision mediump float;
-
-      attribute vec2 vertPosition;
-      attribute vec3 vertColor;
-
-      varying vec3 fragColor;
-
-      void main()
-      {
-        fragColor = vertColor;
-        gl_Position = vec4(vertPosition, 0.0, 1.0);
-      }
-    </script>
-
-    <script id="fragment-shader" type="not-javascript">
-      precision mediump float;
-
-      varying vec3 fragColor;
-
-      void main()
-      {
-        gl_FragColor = vec4(fragColor, 1);
-      }
-    </script>
+    <script src="../../dist/NEWT-0.0.3.min.js"></script>
   </head>
 
   <body>
@@ -62,26 +37,14 @@
     });
     var ctx = canvas.context;
 
-    var vertexShader = new NEWT.Shader({
+    var material = new NEWT.Material({
       context : ctx,
-      source  : document.getElementById("vertex-shader").text,
-      type    : 'VERTEX_SHADER',
-    });
-
-    var fragmentShader = new NEWT.Shader({
-      context : ctx,
-      source  : document.getElementById("fragment-shader").text,
-      type    : 'FRAGMENT_SHADER',
-    });
-
-    var shaderProgram = new NEWT.ShaderProgram({
-      context : ctx,
-      shaders : [vertexShader.shader, fragmentShader.shader],
+      type    : 'flat',
     });
 
     var geometryBuffer = new NEWT.GeometryBuffer({
       context  : ctx,
-      program  : shaderProgram.program,
+      program  : material.shaderProgram.program,
       vertices : [
         0, 1, 1.0, 0, 0.5,
         -1, -1, 0, 0.5, 1.0,
@@ -89,7 +52,7 @@
       ],
     });
 
-    ctx.useProgram(shaderProgram.program);
+    ctx.useProgram(material.shaderProgram.program);
     canvas.clearCanvas();
     ctx.drawArrays(ctx.TRIANGLES, 0, 3);
   </script>
