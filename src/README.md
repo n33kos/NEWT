@@ -9,11 +9,13 @@
 ## Classes
 
 <dl>
-<dt><a href="#GeometryBuffer">GeometryBuffer</a></dt>
+<dt><a href="#Vector2">Vector2</a></dt>
+<dd></dd>
+<dt><a href="#Vector3">Vector3</a></dt>
+<dd></dd>
+<dt><a href="#Vector4">Vector4</a></dt>
 <dd></dd>
 <dt><a href="#Canvas">Canvas</a></dt>
-<dd></dd>
-<dt><a href="#Material">Material</a></dt>
 <dd></dd>
 <dt><a href="#Shader">Shader</a></dt>
 <dd></dd>
@@ -21,11 +23,9 @@
 <dd></dd>
 <dt><a href="#Text2D">Text2D</a></dt>
 <dd></dd>
-<dt><a href="#Vector2">Vector2</a></dt>
+<dt><a href="#Material">Material</a></dt>
 <dd></dd>
-<dt><a href="#Vector3">Vector3</a></dt>
-<dd></dd>
-<dt><a href="#Vector4">Vector4</a></dt>
+<dt><a href="#GeometryBuffer">GeometryBuffer</a></dt>
 <dd></dd>
 </dl>
 
@@ -45,22 +45,53 @@
 ## NEWT
 A module to assist WebGL development.
 
-<a name="GeometryBuffer"></a>
+<a name="Vector2"></a>
 
-## GeometryBuffer
+## Vector2
 **Kind**: global class  
-<a name="new_GeometryBuffer_new"></a>
+<a name="new_Vector2_new"></a>
 
-### new GeometryBuffer(config)
-A class for creating a geometry buffer .
+### new Vector2(x, y)
+A class to represent a 2 dimensional vector
 
 
-| Param | Type | Description |
-| --- | --- | --- |
-| config | <code>Object</code> | configuration object |
-| config.context | <code>Context</code> | The webgl context |
-| config.vertices | <code>Array</code> | Clip space vertex data to bind to the buffer [x, y, r, g, b] |
-| config.program | [<code>ShaderProgram</code>](#ShaderProgram) | ShaderProgram to add buffer attributes to |
+| Param | Type |
+| --- | --- |
+| x | <code>number</code> | 
+| y | <code>number</code> | 
+
+<a name="Vector3"></a>
+
+## Vector3
+**Kind**: global class  
+<a name="new_Vector3_new"></a>
+
+### new Vector3(x, y, z)
+A class to represent a 3 dimensional vector
+
+
+| Param | Type |
+| --- | --- |
+| x | <code>number</code> | 
+| y | <code>number</code> | 
+| z | <code>number</code> | 
+
+<a name="Vector4"></a>
+
+## Vector4
+**Kind**: global class  
+<a name="new_Vector4_new"></a>
+
+### new Vector4(x, y, z, w)
+A class to represent a 4 dimensional vector
+
+
+| Param | Type |
+| --- | --- |
+| x | <code>number</code> | 
+| y | <code>number</code> | 
+| z | <code>number</code> | 
+| w | <code>number</code> | 
 
 <a name="Canvas"></a>
 
@@ -79,22 +110,6 @@ A class for initializing a canvas in webGL context
 | config.width | <code>number</code> | The width of the canvas element |
 | config.element | <code>string</code> | The id of the canvas element to initialize |
 | config.color | [<code>Vector4</code>](#Vector4) | The initial background color Vector4(r, g, b, a) |
-
-<a name="Material"></a>
-
-## Material
-**Kind**: global class  
-<a name="new_Material_new"></a>
-
-### new Material(config)
-A class for creating a material
-
-
-| Param | Type | Description |
-| --- | --- | --- |
-| config | <code>Object</code> | configuration object |
-| config.context | <code>string</code> | The webgl context for the shader |
-| config.type | <code>string</code> | The type of material to create (flat) |
 
 <a name="Shader"></a>
 
@@ -149,53 +164,38 @@ A class for rendering 2D text
 | config.position | [<code>Vector2</code>](#Vector2) | The position of the text in pixels |
 | config.color | [<code>Vector4</code>](#Vector4) | The text color Vector4(r, g, b, a) |
 
-<a name="Vector2"></a>
+<a name="Material"></a>
 
-## Vector2
+## Material
 **Kind**: global class  
-<a name="new_Vector2_new"></a>
+<a name="new_Material_new"></a>
 
-### new Vector2(x, y)
-A class to represent a 2 dimensional vector
+### new Material(config)
+A class for creating a material
 
 
-| Param | Type |
-| --- | --- |
-| x | <code>number</code> | 
-| y | <code>number</code> | 
+| Param | Type | Description |
+| --- | --- | --- |
+| config | <code>Object</code> | configuration object |
+| config.context | <code>string</code> | The webgl context for the shader |
+| config.type | <code>string</code> | The type of material to create (flat) |
 
-<a name="Vector3"></a>
+<a name="GeometryBuffer"></a>
 
-## Vector3
+## GeometryBuffer
 **Kind**: global class  
-<a name="new_Vector3_new"></a>
+<a name="new_GeometryBuffer_new"></a>
 
-### new Vector3(x, y, z)
-A class to represent a 3 dimensional vector
-
-
-| Param | Type |
-| --- | --- |
-| x | <code>number</code> | 
-| y | <code>number</code> | 
-| z | <code>number</code> | 
-
-<a name="Vector4"></a>
-
-## Vector4
-**Kind**: global class  
-<a name="new_Vector4_new"></a>
-
-### new Vector4(x, y, z, w)
-A class to represent a 4 dimensional vector
+### new GeometryBuffer(config)
+A class for creating a geometry buffer .
 
 
-| Param | Type |
-| --- | --- |
-| x | <code>number</code> | 
-| y | <code>number</code> | 
-| z | <code>number</code> | 
-| w | <code>number</code> | 
+| Param | Type | Description |
+| --- | --- | --- |
+| config | <code>Object</code> | configuration object |
+| config.context | <code>Context</code> | The webgl context |
+| config.vertices | <code>Array</code> | Clip space vertex data to bind to the buffer [x, y, r, g, b] |
+| config.program | [<code>ShaderProgram</code>](#ShaderProgram) | ShaderProgram to add buffer attributes to |
 
 <a name="degrees"></a>
 

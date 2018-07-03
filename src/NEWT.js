@@ -15,10 +15,10 @@ import Vector3        from './utils/math/vector3';
 import Vector4        from './utils/math/vector4';
 
 // ----Function Imports----
-import DegToRad from './utils/math/radians';
-import RadToDeg from './utils/math/degrees';
+import degToRad from './utils/math/radians';
+import radToDeg from './utils/math/degrees';
 
-window.NEWT = {
+const NEWT = {
   // Classes----------
   Canvas,
   GeometryBuffer,
@@ -31,6 +31,12 @@ window.NEWT = {
   Vector4,
 
   // Functions--------
-  DegToRad,
-  RadToDeg,
-};
+  degToRad,
+  radToDeg,
+}
+
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
+  module.exports = NEWT;
+} else {
+  window.NEWT = NEWT;
+}

@@ -1,25 +1,3 @@
-<a name="degrees"></a>
-
-## degrees(radians)
-A function to convert radians to degrees
-
-**Kind**: global function  
-
-| Param | Type |
-| --- | --- |
-| radians | <code>number</code> | 
-
-<a name="radians"></a>
-
-## radians(degrees)
-A function to convert degrees to radians
-
-**Kind**: global function  
-
-| Param | Type |
-| --- | --- |
-| degrees | <code>number</code> | 
-
 <a name="Vector2"></a>
 
 ## Vector2
@@ -34,6 +12,17 @@ A class to represent a 2 dimensional vector
 | --- | --- |
 | x | <code>number</code> | 
 | y | <code>number</code> | 
+
+<a name="degrees"></a>
+
+## degrees(radians)
+A function to convert radians to degrees
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| radians | <code>number</code> | 
 
 <a name="Vector3"></a>
 
@@ -50,6 +39,17 @@ A class to represent a 3 dimensional vector
 | x | <code>number</code> | 
 | y | <code>number</code> | 
 | z | <code>number</code> | 
+
+<a name="radians"></a>
+
+## radians(degrees)
+A function to convert degrees to radians
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| degrees | <code>number</code> | 
 
 <a name="Vector4"></a>
 

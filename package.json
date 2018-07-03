@@ -2,13 +2,13 @@
   "name": "NEWT",
   "version": "0.0.3",
   "description": "A toolkit to assist WebGL development",
-  "main": "index.js",
+  "main": "dist/NEWT.node.js",
   "scripts": {
     "build": "webpack",
     "document": "./document.sh",
     "deploy": "npm run test && npm run build && npm run document",
     "serve": "http-server",
-    "test": "echo \"Error: no test specified\""
+    "test": "node ./tests/index.js"
   },
   "author": "n33kos",
   "license": "MIT",
