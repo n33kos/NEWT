@@ -9,6 +9,8 @@
 ## Classes
 
 <dl>
+<dt><a href="#Mesh">Mesh</a></dt>
+<dd></dd>
 <dt><a href="#Vector2">Vector2</a></dt>
 <dd></dd>
 <dt><a href="#Vector3">Vector3</a></dt>
@@ -21,11 +23,13 @@
 <dd></dd>
 <dt><a href="#ShaderProgram">ShaderProgram</a></dt>
 <dd></dd>
+<dt><a href="#GeometryBuffer">GeometryBuffer</a></dt>
+<dd></dd>
+<dt><a href="#Triangle">Triangle</a></dt>
+<dd></dd>
 <dt><a href="#Text2D">Text2D</a></dt>
 <dd></dd>
 <dt><a href="#Material">Material</a></dt>
-<dd></dd>
-<dt><a href="#GeometryBuffer">GeometryBuffer</a></dt>
 <dd></dd>
 </dl>
 
@@ -44,6 +48,22 @@
 
 ## NEWT
 A module to assist WebGL development.
+
+<a name="Mesh"></a>
+
+## Mesh
+**Kind**: global class  
+<a name="new_Mesh_new"></a>
+
+### new Mesh(config)
+A class to create a mesh object
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| config | <code>Object</code> | configuration object |
+| config.geometry | <code>Context</code> | Geometry for the mesh |
+| config.material | <code>Context</code> | Material for the mesh |
 
 <a name="Vector2"></a>
 
@@ -144,6 +164,40 @@ A class for creating a shader program from an array of shaders
 | config.context | <code>string</code> | The webgl context for the shader |
 | config.shaders | <code>Array</code> | an array of Shader objects, Will be added to the program in index order |
 
+<a name="GeometryBuffer"></a>
+
+## GeometryBuffer
+**Kind**: global class  
+<a name="new_GeometryBuffer_new"></a>
+
+### new GeometryBuffer(config)
+A class for creating a geometry buffer.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| config | <code>Object</code> | configuration object |
+| config.context | <code>Context</code> | The webgl context |
+| config.vertices | <code>Array</code> | Clip space vertex data to bind to the buffer [x, y, r, g, b] |
+| config.program | [<code>ShaderProgram</code>](#ShaderProgram) | ShaderProgram to add buffer attributes to |
+
+<a name="Triangle"></a>
+
+## Triangle
+**Kind**: global class  
+<a name="new_Triangle_new"></a>
+
+### new Triangle(config)
+A class for creating a triangle.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| config | <code>Object</code> | configuration object |
+| config.A | <code>Context</code> | Vertex A |
+| config.B | <code>Context</code> | Vertex B |
+| config.C | <code>Context</code> | Vertex C |
+
 <a name="Text2D"></a>
 
 ## Text2D
@@ -179,23 +233,6 @@ A class for creating a material
 | config | <code>Object</code> | configuration object |
 | config.context | <code>string</code> | The webgl context for the shader |
 | config.type | <code>string</code> | The type of material to create (flat) |
-
-<a name="GeometryBuffer"></a>
-
-## GeometryBuffer
-**Kind**: global class  
-<a name="new_GeometryBuffer_new"></a>
-
-### new GeometryBuffer(config)
-A class for creating a geometry buffer .
-
-
-| Param | Type | Description |
-| --- | --- | --- |
-| config | <code>Object</code> | configuration object |
-| config.context | <code>Context</code> | The webgl context |
-| config.vertices | <code>Array</code> | Clip space vertex data to bind to the buffer [x, y, r, g, b] |
-| config.program | [<code>ShaderProgram</code>](#ShaderProgram) | ShaderProgram to add buffer attributes to |
 
 <a name="degrees"></a>
 

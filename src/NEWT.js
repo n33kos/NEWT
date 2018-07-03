@@ -5,27 +5,31 @@
 
 // ----Class Imports----
 import Canvas         from './canvas/canvas';
-import GeometryBuffer from './buffer/geometryBuffer';
+import GeometryBuffer from './geometry/geometryBuffer';
 import Material       from './material/material';
+import Mesh           from './objects/mesh';
 import Shader         from './shader/shader';
 import ShaderProgram  from './shader/shaderProgram';
 import Text2D         from './text/text2d';
-import Vector2        from './utils/math/vector2';
-import Vector3        from './utils/math/vector3';
-import Vector4        from './utils/math/vector4';
+import Triangle       from './geometry/triangle';
+import Vector2        from './math/vector2';
+import Vector3        from './math/vector3';
+import Vector4        from './math/vector4';
 
 // ----Function Imports----
-import degToRad from './utils/math/radians';
-import radToDeg from './utils/math/degrees';
+import degToRad       from './math/degToRad';
+import radToDeg       from './math/radToDeg';
 
 const NEWT = {
   // Classes----------
   Canvas,
   GeometryBuffer,
   Material,
+  Mesh,
   Shader,
   ShaderProgram,
   Text2D,
+  Triangle,
   Vector2,
   Vector3,
   Vector4,
