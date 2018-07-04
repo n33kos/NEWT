@@ -9,6 +9,8 @@
 ## Classes
 
 <dl>
+<dt><a href="#Renderer">Renderer</a></dt>
+<dd></dd>
 <dt><a href="#Mesh">Mesh</a></dt>
 <dd></dd>
 <dt><a href="#Vector2">Vector2</a></dt>
@@ -29,6 +31,8 @@
 <dd></dd>
 <dt><a href="#Text2D">Text2D</a></dt>
 <dd></dd>
+<dt><a href="#Scene">Scene</a></dt>
+<dd></dd>
 <dt><a href="#Material">Material</a></dt>
 <dd></dd>
 </dl>
@@ -48,6 +52,22 @@
 
 ## NEWT
 A module to assist WebGL development.
+
+<a name="Renderer"></a>
+
+## Renderer
+**Kind**: global class  
+<a name="new_Renderer_new"></a>
+
+### new Renderer(config)
+A class to render a scene
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| config | <code>Object</code> | configuration object |
+| config.scene | [<code>Scene</code>](#Scene) | Scene to render |
+| config.context | <code>Context</code> | WebGL context to render to |
 
 <a name="Mesh"></a>
 
@@ -177,7 +197,6 @@ A class for creating a geometry buffer.
 | Param | Type | Description |
 | --- | --- | --- |
 | config | <code>Object</code> | configuration object |
-| config.context | <code>Context</code> | The webgl context |
 | config.vertices | <code>Array</code> | Clip space vertex data to bind to the buffer [x, y, r, g, b] |
 | config.program | [<code>ShaderProgram</code>](#ShaderProgram) | ShaderProgram to add buffer attributes to |
 
@@ -217,6 +236,20 @@ A class for rendering 2D text
 | config.origin | [<code>Vector2</code>](#Vector2) | The origin point of the text Vector2(0, 1) |
 | config.position | [<code>Vector2</code>](#Vector2) | The position of the text in pixels |
 | config.color | [<code>Vector4</code>](#Vector4) | The text color Vector4(r, g, b, a) |
+
+<a name="Scene"></a>
+
+## Scene
+**Kind**: global class  
+<a name="new_Scene_new"></a>
+
+### new Scene(config)
+A class to manage a scene
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| config | <code>Object</code> | configuration object |
 
 <a name="Material"></a>
 

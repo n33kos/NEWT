@@ -6,12 +6,11 @@
  * @param {Context} config.material - Material for the mesh
  */
 
-import Triangle from '../geometry/triangle';
 import Material from '../material/material';
 
 export default class {
   constructor({
-    geometry = new Triangle(),
+    geometry = [],
     material = new Material('flat'),
   }) {
     this.geometry = geometry;

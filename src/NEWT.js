@@ -8,6 +8,8 @@ import Canvas         from './canvas/canvas';
 import GeometryBuffer from './geometry/geometryBuffer';
 import Material       from './material/material';
 import Mesh           from './objects/mesh';
+import Renderer       from './renderer/renderer';
+import Scene          from './scene/scene';
 import Shader         from './shader/shader';
 import ShaderProgram  from './shader/shaderProgram';
 import Text2D         from './text/text2d';
@@ -26,6 +28,8 @@ const NEWT = {
   GeometryBuffer,
   Material,
   Mesh,
+  Renderer,
+  Scene,
   Shader,
   ShaderProgram,
   Text2D,

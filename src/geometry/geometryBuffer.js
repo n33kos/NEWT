@@ -2,17 +2,21 @@
  * A class for creating a geometry buffer.
  * @class GeometryBuffer
  * @param {Object} config - configuration object
- * @param {Context} config.context - The webgl context
  * @param {Array} config.vertices - Clip space vertex data to bind to the buffer [x, y, r, g, b]
  * @param {ShaderProgram} config.program - ShaderProgram to add buffer attributes to
  */
 
 export default class {
   constructor({
-    context = null,
     vertices = null,
     program = null,
   }) {
+    this.vertices = vertices;
+    this.program = program;
+    this.buffer = null;
+  }
+
+  createAndBind(context) {
     // Create a geometry buffer in the GPU memory
     let geometryBuffer = context.createBuffer();
 
@@ -23,17 +27,15 @@ export default class {
     // Float64 arrays by default and webGL expects a Float32 array so we have to
     // convert it. We also pass STATIC_DRAW for the usage, it is a hint to the GPU
     // About how we will use the buffer
-    context.bufferData(context.ARRAY_BUFFER, new Float32Array(vertices), context.STATIC_DRAW);
+    context.bufferData(context.ARRAY_BUFFER, new Float32Array(this.vertices), context.STATIC_DRAW);
 
     this.buffer = geometryBuffer;
-    this.program = program;
 
-    this.attachVertexBufferDataToAttributes(program, context);
+    this.attachVertexBufferDataToAttributes(context);
   }
 
-
-  attachVertexBufferDataToAttributes(program, context) {
-    let positionAttributeLocation = context.getAttribLocation(program, 'vertPosition');
+  attachVertexBufferDataToAttributes(context) {
+    let positionAttributeLocation = context.getAttribLocation(this.program, 'vertPosition');
     context.vertexAttribPointer(
       positionAttributeLocation, // Attribute Location
       2, // Number of elements per Attribute
@@ -43,7 +45,7 @@ export default class {
       0, // Offset from beginning of a single vertex
     );
 
-    let colorAttributeLocation = context.getAttribLocation(program, 'vertColor');
+    let colorAttributeLocation = context.getAttribLocation(this.program, 'vertColor');
     context.vertexAttribPointer(
       colorAttributeLocation, // Attribute Location
       3, // Number of elements per Attribute
@@ -56,5 +58,4 @@ export default class {
     context.enableVertexAttribArray(positionAttributeLocation);
     context.enableVertexAttribArray(colorAttributeLocation);
   }
-
 }

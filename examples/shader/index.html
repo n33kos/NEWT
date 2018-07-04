@@ -37,23 +37,26 @@
     });
     var ctx = canvas.context;
 
-    var material = new NEWT.Material({
-      context : ctx,
-      type    : 'flat',
-    });
-
-    var geometryBuffer = new NEWT.GeometryBuffer({
-      context  : ctx,
-      program  : material.shaderProgram.program,
-      vertices : [
+    var mesh = new NEWT.Mesh({
+      material : new NEWT.Material({
+        context : ctx,
+        type    : 'flat',
+      }),
+      geometry : [
         0, 1, 1.0, 0, 0.5,
         -1, -1, 0, 0.5, 1.0,
         1, -1, 0.5, 1, 0.5,
       ],
     });
 
-    ctx.useProgram(material.shaderProgram.program);
-    canvas.clearCanvas();
-    ctx.drawArrays(ctx.TRIANGLES, 0, 3);
+    var scene = new NEWT.Scene();
+    scene.add(mesh);
+
+    var renderer = new NEWT.Renderer({
+      context : ctx,
+      scene   : scene,
+    });
+
+    renderer.render();
   </script>
 </html>

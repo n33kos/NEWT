@@ -41,6 +41,6 @@ export default class {
 
     this.vertexShader = vertexShader;
     this.fragmentShader = fragmentShader;
-    this.shaderProgram = shaderProgram;
+    this.shaderProgram = shaderProgram.program;
   }
 }
