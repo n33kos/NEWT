@@ -11,6 +11,8 @@
 <dl>
 <dt><a href="#Renderer">Renderer</a></dt>
 <dd></dd>
+<dt><a href="#Color">Color</a></dt>
+<dd></dd>
 <dt><a href="#Mesh">Mesh</a></dt>
 <dd></dd>
 <dt><a href="#Vector2">Vector2</a></dt>
@@ -25,8 +27,6 @@
 <dd></dd>
 <dt><a href="#ShaderProgram">ShaderProgram</a></dt>
 <dd></dd>
-<dt><a href="#GeometryBuffer">GeometryBuffer</a></dt>
-<dd></dd>
 <dt><a href="#Triangle">Triangle</a></dt>
 <dd></dd>
 <dt><a href="#Text2D">Text2D</a></dt>
@@ -34,6 +34,8 @@
 <dt><a href="#Scene">Scene</a></dt>
 <dd></dd>
 <dt><a href="#Material">Material</a></dt>
+<dd></dd>
+<dt><a href="#ArrayBuffer">ArrayBuffer</a></dt>
 <dd></dd>
 </dl>
 
@@ -68,6 +70,23 @@ A class to render a scene
 | config | <code>Object</code> | configuration object |
 | config.scene | [<code>Scene</code>](#Scene) | Scene to render |
 | config.context | <code>Context</code> | WebGL context to render to |
+
+<a name="Color"></a>
+
+## Color
+**Kind**: global class  
+<a name="new_Color_new"></a>
+
+### new Color(r, g, b, a)
+A class to contain color data
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| r | <code>Float</code> | Red channel value (0-1) |
+| g | <code>Float</code> | Green channel value (0-1) |
+| b | <code>Float</code> | Blue channel value (0-1) |
+| a | <code>Float</code> | Alpha channel value (0-1) |
 
 <a name="Mesh"></a>
 
@@ -184,22 +203,6 @@ A class for creating a shader program from an array of shaders
 | config.context | <code>string</code> | The webgl context for the shader |
 | config.shaders | <code>Array</code> | an array of Shader objects, Will be added to the program in index order |
 
-<a name="GeometryBuffer"></a>
-
-## GeometryBuffer
-**Kind**: global class  
-<a name="new_GeometryBuffer_new"></a>
-
-### new GeometryBuffer(config)
-A class for creating a geometry buffer.
-
-
-| Param | Type | Description |
-| --- | --- | --- |
-| config | <code>Object</code> | configuration object |
-| config.vertices | <code>Array</code> | Clip space vertex data to bind to the buffer [x, y, r, g, b] |
-| config.program | [<code>ShaderProgram</code>](#ShaderProgram) | ShaderProgram to add buffer attributes to |
-
 <a name="Triangle"></a>
 
 ## Triangle
@@ -265,7 +268,30 @@ A class for creating a material
 | --- | --- | --- |
 | config | <code>Object</code> | configuration object |
 | config.context | <code>string</code> | The webgl context for the shader |
-| config.type | <code>string</code> | The type of material to create (flat) |
+| config.diffuse | [<code>Color</code>](#Color) | the diffuse color for the material |
+| config.shaderType | <code>string</code> | The shader type of material to create (flat) |
+| config.vertexColorArray | <code>array</code> | An array of colors which correspond to the vertices in a mesh |
+
+<a name="ArrayBuffer"></a>
+
+## ArrayBuffer
+**Kind**: global class  
+<a name="new_ArrayBuffer_new"></a>
+
+### new ArrayBuffer(attributes, program, attribute)
+A class for creating a geometry buffer.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| attributes | <code>Array</code> | An array of attributes to bind to the array buffer |
+| program | [<code>ShaderProgram</code>](#ShaderProgram) | ShaderProgram to add buffer attributes to |
+| attribute | <code>Object</code> | an attribute config object |
+| attribute.data | <code>Array</code> | Vertex data to bind to the buffer |
+| attribute.elements | <code>int</code> | number of elements per attribute |
+| attribute.name | <code>string</code> | The name of the shader attribute to attach the data to |
+| attribute.normalize | <code>string</code> | boolean string to normalize values |
+| attribute.type | <code>string</code> | The element type to bind to the buffer |
 
 <a name="degrees"></a>
 

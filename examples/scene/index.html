@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Shader Example</title>
+    <title>Scene Example</title>
 
     <meta name="description" content="Examples for webgl tools">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,7 +25,7 @@
 
   <body>
     <canvas id="view" class="Fill"></canvas>
-    <h1>Shader Example</h1>
+    <h1>Scene Example</h1>
   </body>
 
   <script>
@@ -37,25 +37,28 @@
     });
     var ctx = canvas.context;
 
-    var mesh = new NEWT.Mesh({
-      material : new NEWT.Material({
-        context    : ctx,
-        shaderType : 'flat',
-        vertexColorArray : [
-          1, 0, 0, 1.0,
-          0, 1, 0, 1.0,
-          0, 0, 1, 1.0,
-        ],
-      }),
-      geometry : [
-        0, 1, 0,
-        -1, -1, 0,
-        1, -1, 0,
-      ],
-    });
-
     var scene = new NEWT.Scene();
-    scene.add(mesh);
+
+    for (var i = 0; i < 20; i++) {
+      var mesh = new NEWT.Mesh({
+        material : new NEWT.Material({
+          context    : ctx,
+          shaderType : 'flat',
+          vertexColorArray : [
+            Math.random(), Math.random(), Math.random(), 1.0,
+            Math.random(), Math.random(), Math.random(), 1.0,
+            Math.random(), Math.random(), Math.random(), 1.0,
+          ],
+        }),
+        geometry : [
+          Math.random(), Math.random(), 0,
+          -Math.random(), -Math.random(), 0,
+          Math.random(), -Math.random(), 0,
+        ],
+      });
+
+      scene.add(mesh);
+    }
 
     var renderer = new NEWT.Renderer({
       context : ctx,

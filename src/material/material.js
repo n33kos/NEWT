@@ -3,11 +3,10 @@
  * @class Material
  * @param {Object} config - configuration object
  * @param {string} config.context - The webgl context for the shader
- * @param {string} config.type - The type of material to create (flat)
+ * @param {Color} config.diffuse - the diffuse color for the material
+ * @param {string} config.shaderType - The shader type of material to create (flat)
+ * @param {array} config.vertexColorArray - An array of colors which correspond to the vertices in a mesh
  */
-
-import Shader         from '../shader/shader';
-import ShaderProgram  from '../shader/shaderProgram';
 
 // Default Shaders
 import flatVertex     from '../shader/flat/vert.glsl';
@@ -20,17 +19,19 @@ const shaders = {
 export default class {
   constructor({
     context = null,
-    type    = null,
+    diffuse = null,
+    shaderType = null,
+    vertexColorArray = null,
   }) {
     const vertexShader = new NEWT.Shader({
       context : ctx,
-      source  : shaders[`${type}Vertex`],
+      source  : shaders[`${shaderType}Vertex`],
       type    : 'VERTEX_SHADER',
     });
 
     const fragmentShader = new NEWT.Shader({
       context : ctx,
-      source  : shaders[`${type}Fragment`],
+      source  : shaders[`${shaderType}Fragment`],
       type    : 'FRAGMENT_SHADER',
     });
 
@@ -39,8 +40,11 @@ export default class {
       shaders : [vertexShader.shader, fragmentShader.shader],
     });
 
-    this.vertexShader = vertexShader;
+    this.diffuse = diffuse;
     this.fragmentShader = fragmentShader;
     this.shaderProgram = shaderProgram.program;
+    this.vertexColorArray = vertexColorArray;
+    this.vertexShader = vertexShader;
+    this.shaderType = shaderType;
   }
 }

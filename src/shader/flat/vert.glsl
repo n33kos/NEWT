@@ -2,15 +2,16 @@ export default `
 
   precision mediump float;
 
-  attribute vec2 vertPosition;
-  attribute vec3 vertColor;
+  attribute vec3 vertexPosition;
+  attribute vec4 diffuseColor;
+  attribute vec4 vertexColor;
 
-  varying vec3 fragColor;
+  varying vec4 fragColor;
 
   void main()
   {
-    fragColor = vertColor;
-    gl_Position = vec4(vertPosition, 0.0, 1.0);
+    fragColor = diffuseColor * vertexColor;
+    gl_Position = vec4(vertexPosition, 1.0);
   }
 
 `;

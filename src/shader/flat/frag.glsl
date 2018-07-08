@@ -2,11 +2,11 @@ export default `
 
     precision mediump float;
 
-    varying vec3 fragColor;
+    varying vec4 fragColor;
 
     void main()
     {
-      gl_FragColor = vec4(fragColor, 1);
+      gl_FragColor = fragColor;
     }
 
 `;

@@ -5,7 +5,8 @@
 
 // ----Class Imports----
 import Canvas         from './canvas/canvas';
-import GeometryBuffer from './geometry/geometryBuffer';
+import Color          from './color/color';
+import ArrayBuffer    from './buffer/arrayBuffer';
 import Material       from './material/material';
 import Mesh           from './objects/mesh';
 import Renderer       from './renderer/renderer';
@@ -25,7 +26,8 @@ import radToDeg       from './math/radToDeg';
 const NEWT = {
   // Classes----------
   Canvas,
-  GeometryBuffer,
+  Color,
+  ArrayBuffer,
   Material,
   Mesh,
   Renderer,

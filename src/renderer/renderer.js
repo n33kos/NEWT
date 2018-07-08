@@ -15,6 +15,52 @@ export default class {
     this.context = context;
   }
 
+  prepareArrayBuffer(object) {
+    const buffer = new NEWT.ArrayBuffer(
+      object.material.shaderProgram,
+      this.getArrayBufferAttributes(object),
+    );
+    buffer.createAndBind(this.context);
+    buffer.attachBufferDataToAttributes(this.context);
+    this.context.useProgram(buffer.program);
+
+    return buffer;
+  }
+
+  getArrayBufferAttributes(object) {
+    const attributes = [];
+
+    if (object.geometry !== null) {
+      attributes.push({
+        data      : object.geometry,
+        elements  : 3,
+        name      : 'vertexPosition',
+        normalize : 'FALSE',
+        type      : 'FLOAT',
+      });
+    }
+
+    if(object.material.shaderType === 'flat') {
+      attributes.push({
+        data      : object.material.diffuse ? object.material.diffuse.toArray() : new NEWT.Color(1, 1, 1, 1).toArray(),
+        elements  : 4,
+        name      : 'diffuseColor',
+        normalize : 'FALSE',
+        type      : 'FLOAT',
+      });
+
+      attributes.push({
+        data      : object.material.vertexColorArray || new NEWT.Color(1, 1, 1, 1).toArray(),
+        elements  : 4,
+        name      : 'vertexColor',
+        normalize : 'FALSE',
+        type      : 'FLOAT',
+      });
+    }
+
+    return attributes;
+  }
+
   render() {
     canvas.clearCanvas();
     this.scene.objects.forEach(object => {
@@ -23,13 +69,7 @@ export default class {
   }
 
   renderObject(object) {
-    var geometryBuffer = new NEWT.GeometryBuffer({
-      program  : object.material.shaderProgram,
-      vertices : object.geometry,
-    });
-    geometryBuffer.createAndBind(this.context);
-    geometryBuffer.attachVertexBufferDataToAttributes(this.context);
-    this.context.useProgram(geometryBuffer.program);
-    this.context.drawArrays(this.context.TRIANGLES, 0, 3);
+    const arrayBuffer = this.prepareArrayBuffer(object);
+    this.context.drawArrays(this.context.TRIANGLES, 0, arrayBuffer.elements);
   }
 }
