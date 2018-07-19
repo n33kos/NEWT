@@ -61,6 +61,27 @@ export default class {
     return attributes;
   }
 
+  getArrayBufferUniforms(object) {
+    object.transform.calculateMatrix();
+    const uniforms = [];
+    uniforms.push({
+      data      : object.transform.matrix.toWebGL(),
+      elements  : 3,
+      name      : 'matrix',
+      normalize : 'FALSE',
+      type      : 'FLOAT',
+    });
+
+    return uniforms;
+  }
+
+  setUniforms(object, buffer) {
+    this.getArrayBufferUniforms(object).forEach(uniform => {
+      const location = this.context.getUniformLocation(buffer.program, uniform.name);
+      this.context.uniformMatrix3fv(location, false, uniform.data);
+    });
+  }
+
   render() {
     canvas.clearCanvas();
     this.scene.objects.forEach(object => {
@@ -70,6 +91,7 @@ export default class {
 
   renderObject(object) {
     const arrayBuffer = this.prepareArrayBuffer(object);
+    this.setUniforms(object, arrayBuffer);
     this.context.drawArrays(this.context.TRIANGLES, 0, arrayBuffer.elements);
   }
 }

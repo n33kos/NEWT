@@ -40,6 +40,15 @@ A class to represent a 3 dimensional vector
 | y | <code>number</code> | 
 | z | <code>number</code> | 
 
+<a name="Matrix"></a>
+
+## Matrix
+**Kind**: global class  
+<a name="new_Matrix_new"></a>
+
+### new Matrix()
+A class for matrix calculations
+
 <a name="radians"></a>
 
 ## radians(degrees)

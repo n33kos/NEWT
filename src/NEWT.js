@@ -8,12 +8,14 @@ import Canvas         from './canvas/canvas';
 import Color          from './color/color';
 import ArrayBuffer    from './buffer/arrayBuffer';
 import Material       from './material/material';
+import Matrix         from './math/matrix';
 import Mesh           from './objects/mesh';
 import Renderer       from './renderer/renderer';
 import Scene          from './scene/scene';
 import Shader         from './shader/shader';
 import ShaderProgram  from './shader/shaderProgram';
 import Text2D         from './text/text2d';
+import Transform      from './objects/transform';
 import Triangle       from './geometry/triangle';
 import Vector2        from './math/vector2';
 import Vector3        from './math/vector3';
@@ -29,12 +31,14 @@ const NEWT = {
   Color,
   ArrayBuffer,
   Material,
+  Matrix,
   Mesh,
   Renderer,
   Scene,
   Shader,
   ShaderProgram,
   Text2D,
+  Transform,
   Triangle,
   Vector2,
   Vector3,

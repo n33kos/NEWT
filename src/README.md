@@ -15,9 +15,13 @@
 <dd></dd>
 <dt><a href="#Mesh">Mesh</a></dt>
 <dd></dd>
+<dt><a href="#Transform">Transform</a></dt>
+<dd></dd>
 <dt><a href="#Vector2">Vector2</a></dt>
 <dd></dd>
 <dt><a href="#Vector3">Vector3</a></dt>
+<dd></dd>
+<dt><a href="#Matrix">Matrix</a></dt>
 <dd></dd>
 <dt><a href="#Vector4">Vector4</a></dt>
 <dd></dd>
@@ -101,8 +105,25 @@ A class to create a mesh object
 | Param | Type | Description |
 | --- | --- | --- |
 | config | <code>Object</code> | configuration object |
-| config.geometry | <code>Context</code> | Geometry for the mesh |
-| config.material | <code>Context</code> | Material for the mesh |
+| config.geometry | <code>Array</code> | Geometry for the mesh |
+| config.material | [<code>Material</code>](#Material) | Material for the mesh |
+
+<a name="Transform"></a>
+
+## Transform
+**Kind**: global class  
+<a name="new_Transform_new"></a>
+
+### new Transform(config)
+A class for object transofrm data
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| config | <code>Object</code> | configuration object |
+| config.position | [<code>Vector3</code>](#Vector3) | Transform position |
+| config.rotation | [<code>Vector3</code>](#Vector3) | Transform Rotation |
+| config.scale | [<code>Vector3</code>](#Vector3) | Transform Scale |
 
 <a name="Vector2"></a>
 
@@ -134,6 +155,15 @@ A class to represent a 3 dimensional vector
 | x | <code>number</code> | 
 | y | <code>number</code> | 
 | z | <code>number</code> | 
+
+<a name="Matrix"></a>
+
+## Matrix
+**Kind**: global class  
+<a name="new_Matrix_new"></a>
+
+### new Matrix()
+A class for matrix calculations
 
 <a name="Vector4"></a>
 
@@ -209,16 +239,13 @@ A class for creating a shader program from an array of shaders
 **Kind**: global class  
 <a name="new_Triangle_new"></a>
 
-### new Triangle(config)
+### new Triangle(vertices)
 A class for creating a triangle.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| config | <code>Object</code> | configuration object |
-| config.A | <code>Context</code> | Vertex A |
-| config.B | <code>Context</code> | Vertex B |
-| config.C | <code>Context</code> | Vertex C |
+| vertices | <code>Object</code> | Vertices for the triangle geometry |
 
 <a name="Text2D"></a>
 
@@ -246,13 +273,15 @@ A class for rendering 2D text
 **Kind**: global class  
 <a name="new_Scene_new"></a>
 
-### new Scene(config)
+### new Scene(cameras, lights, objects)
 A class to manage a scene
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| config | <code>Object</code> | configuration object |
+| cameras | <code>Array</code> | Array of scene cameras |
+| lights | <code>Array</code> | Array of scene lights |
+| objects | <code>Array</code> | Array of objects in the scene |
 
 <a name="Material"></a>
 

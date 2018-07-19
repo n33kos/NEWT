@@ -10,4 +10,8 @@ export default class {
     this.x = x;
     this.y = y;
   }
+
+  toArray() {
+    return [this.x, this.y];
+  }
 }

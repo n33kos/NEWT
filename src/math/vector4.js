@@ -14,4 +14,8 @@ export default class {
     this.z = z;
     this.w = w;
   }
+
+  toArray() {
+    return [this.x, this.y, this.z, this.w];
+  }
 }

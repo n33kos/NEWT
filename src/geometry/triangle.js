@@ -1,22 +1,31 @@
 /**
  * A class for creating a triangle.
  * @class Triangle
- * @param {Object} config - configuration object
- * @param {Context} config.A - Vertex A
- * @param {Context} config.B - Vertex B
- * @param {Context} config.C - Vertex C
+ * @param {Object} vertices - Vertices for the triangle geometry
  */
 
 import Vector3 from '../math/vector3';
 
 export default class {
-  constructor({
-    A = new Vector3(),
-    B = new Vector3(),
-    C = new Vector3(),
-  }) {
-    this.A = A;
-    this.B = B;
-    this.C = C;
+  constructor(
+    vertices = [
+      0, 1, 0,
+      -1, -1, 0,
+      1, -1, 0,
+    ]
+  ) {
+    this.vertices = vertices;
+  }
+
+  A() {
+    return this.vertices.slice(0, 3);
+  }
+
+  B() {
+    return this.vertices.slice(3, 6);
+  }
+
+  C() {
+    return this.vertices.slice(6, 9);
   }
 }

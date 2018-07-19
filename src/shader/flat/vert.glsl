@@ -2,6 +2,8 @@ export default `
 
   precision mediump float;
 
+  uniform mat3 matrix;
+
   attribute vec3 vertexPosition;
   attribute vec4 diffuseColor;
   attribute vec4 vertexColor;
@@ -10,8 +12,9 @@ export default `
 
   void main()
   {
+    gl_Position = vec4(vec3(matrix * vertexPosition).xy, 1, 1);
+
     fragColor = diffuseColor * vertexColor;
-    gl_Position = vec4(vertexPosition, 1.0);
   }
 
 `;
