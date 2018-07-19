@@ -7,9 +7,9 @@
  * @param {Vector3} config.scale - Transform Scale
  */
 
-import Vector3    from '../math/vector3';
-import Matrix     from '../math/matrix';
-import MatrixMath from '../math/matrixMath';
+import Matrix  from '../math/matrix';
+import Matrix4 from '../math/matrix4';
+import Vector3 from '../math/vector3';
 
 export default class {
   constructor({
@@ -20,50 +20,80 @@ export default class {
     this.position = position;
     this.rotation = rotation;
     this.scale = scale;
-    this.calculateMatrix(position, rotation, scale);
+    this.calculateTransformMatrix(position, rotation, scale);
   }
 
-  calculateMatrix(
+  calculateTransformMatrix(
     position = this.position,
     rotation = this.rotation,
     scale = this.scale,
   ) {
     // Compute the matrices
     const translationMatrix = this.translationMatrix(position.x, position.y, position.z);
-    const rotationMatrix = this.rotationMatrix(rotation.x);
+    const rotationMatrix = this.rotationMatrix(rotation.x, rotation.y, rotation.z);
     const scaleMatrix = this.scalingMatrix(scale.x, scale.y, scale.z);
 
     // Multiply the matrices.
-    let matrix = new Matrix();
-    matrix = MatrixMath.multiply(matrix, translationMatrix);
-    matrix = MatrixMath.multiply(matrix, rotationMatrix);
-    matrix = MatrixMath.multiply(matrix, scaleMatrix);
+    let matrix = new Matrix4();
+    matrix = Matrix.multiply(matrix, translationMatrix);
+    matrix = Matrix.multiply(matrix, rotationMatrix);
+    matrix = Matrix.multiply(matrix, scaleMatrix);
+
     this.matrix = matrix;
   }
 
   translationMatrix(tx, ty, tz) {
-    return new Matrix([
-      [1, 0, 0],
-      [0, 1, 0],
-      [tx, ty, tz],
+    return new Matrix4([
+      [1, 0, 0, 0],
+      [0, 1, 0, 0],
+      [0, 0, 1, 0],
+      [tx, ty, tz, 1],
     ]);
   }
 
-  rotationMatrix(angleInRadians) {
-    var c = Math.cos(angleInRadians);
-    var s = Math.sin(angleInRadians);
-    return new Matrix([
-      [c,-s, 0],
-      [s, c, 0],
-      [0, 0, 1],
+  rotationMatrix(rx, ry, rz) {
+    var cx = Math.cos(rx);
+    var sx = Math.sin(rx);
+    var cy = Math.cos(ry);
+    var sy = Math.sin(ry);
+    var cz = Math.cos(rz);
+    var sz = Math.sin(rz);
+
+    const xRotation = new Matrix4([
+      [1, 0, 0, 0],
+      [0, cx, sx, 0],
+      [0, -sx, cx, 0],
+      [0, 0, 0, 1],
     ]);
+
+    const yRotation = new Matrix4([
+      [cy, 0, -sy, 0],
+      [0, 1, 0, 0],
+      [sy, 0, cy, 0],
+      [0, 0, 0, 1],
+    ]);
+
+    const zRotation = new Matrix4([
+      [cz, sz, 0, 0],
+      [-sz, cz, 0, 0],
+      [0, 0, 1, 0],
+      [0, 0, 0, 1],
+    ]);
+
+    let rotationMatrix = new Matrix4();
+    rotationMatrix = Matrix.multiply(rotationMatrix, xRotation);
+    rotationMatrix = Matrix.multiply(rotationMatrix, yRotation);
+    rotationMatrix = Matrix.multiply(rotationMatrix, zRotation);
+
+    return rotationMatrix;
   }
 
   scalingMatrix(sx, sy, sz) {
-    return new Matrix([
-      [sx, 0, 0],
-      [0, sy, 0],
-      [0, 0, sz],
+    return new Matrix4([
+      [sx, 0,  0,  0],
+      [0, sy,  0,  0],
+      [0,  0, sz,  0],
+      [0,  0,  0,  1],
     ]);
   }
 }

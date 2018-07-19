@@ -13,6 +13,20 @@ A class to represent a 2 dimensional vector
 | x | <code>number</code> | 
 | y | <code>number</code> | 
 
+<a name="Matrix3"></a>
+
+## Matrix3
+**Kind**: global class  
+<a name="new_Matrix3_new"></a>
+
+### new Matrix3(values)
+A class to represent a 3 dimensional square matrix
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| values | <code>number</code> | An array of arrays containing the matrix values |
+
 <a name="degrees"></a>
 
 ## degrees(radians)
@@ -47,7 +61,7 @@ A class to represent a 3 dimensional vector
 <a name="new_Matrix_new"></a>
 
 ### new Matrix()
-A class for matrix calculations
+A class containing matrix math functions
 
 <a name="radians"></a>
 
@@ -76,4 +90,18 @@ A class to represent a 4 dimensional vector
 | y | <code>number</code> | 
 | z | <code>number</code> | 
 | w | <code>number</code> | 
+
+<a name="Matrix4"></a>
+
+## Matrix4
+**Kind**: global class  
+<a name="new_Matrix4_new"></a>
+
+### new Matrix4(values)
+A class to represent a 4 dimensional square matrix
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| values | <code>number</code> | An array of arrays containing the matrix values |
 

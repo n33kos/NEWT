@@ -62,10 +62,10 @@ export default class {
   }
 
   getArrayBufferUniforms(object) {
-    object.transform.calculateMatrix();
+    object.transform.calculateTransformMatrix();
     const uniforms = [];
     uniforms.push({
-      data      : object.transform.matrix.toWebGL(),
+      data      : object.transform.matrix.toArray(),
       elements  : 3,
       name      : 'matrix',
       normalize : 'FALSE',
@@ -78,7 +78,15 @@ export default class {
   setUniforms(object, buffer) {
     this.getArrayBufferUniforms(object).forEach(uniform => {
       const location = this.context.getUniformLocation(buffer.program, uniform.name);
-      this.context.uniformMatrix3fv(location, false, uniform.data);
+
+      switch (uniform.elements) {
+        case 2:
+          this.context.uniformMatrix3fv(location, false, uniform.data);
+          break;
+        case 3:
+          this.context.uniformMatrix4fv(location, false, uniform.data);
+          break;
+      }
     });
   }
 

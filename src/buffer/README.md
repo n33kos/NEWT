@@ -5,7 +5,7 @@
 <a name="new_ArrayBuffer_new"></a>
 
 ### new ArrayBuffer(attributes, program, attribute)
-A class for creating a geometry buffer.
+A class for creating an array buffer.
 
 
 | Param | Type | Description |

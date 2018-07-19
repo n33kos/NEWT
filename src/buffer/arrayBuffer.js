@@ -1,5 +1,5 @@
 /**
- * A class for creating a geometry buffer.
+ * A class for creating an array buffer.
  * @class ArrayBuffer
  * @param {Array} attributes - An array of attributes to bind to the array buffer
  * @param {ShaderProgram} program - ShaderProgram to add buffer attributes to

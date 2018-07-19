@@ -19,11 +19,15 @@
 <dd></dd>
 <dt><a href="#Vector2">Vector2</a></dt>
 <dd></dd>
+<dt><a href="#Matrix3">Matrix3</a></dt>
+<dd></dd>
 <dt><a href="#Vector3">Vector3</a></dt>
 <dd></dd>
 <dt><a href="#Matrix">Matrix</a></dt>
 <dd></dd>
 <dt><a href="#Vector4">Vector4</a></dt>
+<dd></dd>
+<dt><a href="#Matrix4">Matrix4</a></dt>
 <dd></dd>
 <dt><a href="#Canvas">Canvas</a></dt>
 <dd></dd>
@@ -140,6 +144,20 @@ A class to represent a 2 dimensional vector
 | x | <code>number</code> | 
 | y | <code>number</code> | 
 
+<a name="Matrix3"></a>
+
+## Matrix3
+**Kind**: global class  
+<a name="new_Matrix3_new"></a>
+
+### new Matrix3(values)
+A class to represent a 3 dimensional square matrix
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| values | <code>number</code> | An array of arrays containing the matrix values |
+
 <a name="Vector3"></a>
 
 ## Vector3
@@ -163,7 +181,7 @@ A class to represent a 3 dimensional vector
 <a name="new_Matrix_new"></a>
 
 ### new Matrix()
-A class for matrix calculations
+A class containing matrix math functions
 
 <a name="Vector4"></a>
 
@@ -181,6 +199,20 @@ A class to represent a 4 dimensional vector
 | y | <code>number</code> | 
 | z | <code>number</code> | 
 | w | <code>number</code> | 
+
+<a name="Matrix4"></a>
+
+## Matrix4
+**Kind**: global class  
+<a name="new_Matrix4_new"></a>
+
+### new Matrix4(values)
+A class to represent a 4 dimensional square matrix
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| values | <code>number</code> | An array of arrays containing the matrix values |
 
 <a name="Canvas"></a>
 
@@ -308,7 +340,7 @@ A class for creating a material
 <a name="new_ArrayBuffer_new"></a>
 
 ### new ArrayBuffer(attributes, program, attribute)
-A class for creating a geometry buffer.
+A class for creating an array buffer.
 
 
 | Param | Type | Description |
