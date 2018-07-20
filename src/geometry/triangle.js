@@ -4,8 +4,6 @@
  * @param {Object} vertices - Vertices for the triangle geometry
  */
 
-import Vector3 from '../math/vector3';
-
 export default class {
   constructor(
     vertices = [

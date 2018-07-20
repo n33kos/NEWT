@@ -15,6 +15,8 @@
 <dd></dd>
 <dt><a href="#Mesh">Mesh</a></dt>
 <dd></dd>
+<dt><a href="#Camera">Camera</a></dt>
+<dd></dd>
 <dt><a href="#Transform">Transform</a></dt>
 <dd></dd>
 <dt><a href="#Vector2">Vector2</a></dt>
@@ -35,6 +37,8 @@
 <dd></dd>
 <dt><a href="#ShaderProgram">ShaderProgram</a></dt>
 <dd></dd>
+<dt><a href="#Pyramid">Pyramid</a></dt>
+<dd></dd>
 <dt><a href="#Triangle">Triangle</a></dt>
 <dd></dd>
 <dt><a href="#Text2D">Text2D</a></dt>
@@ -50,11 +54,11 @@
 ## Functions
 
 <dl>
-<dt><a href="#degrees">degrees(radians)</a></dt>
-<dd><p>A function to convert radians to degrees</p>
-</dd>
 <dt><a href="#radians">radians(degrees)</a></dt>
 <dd><p>A function to convert degrees to radians</p>
+</dd>
+<dt><a href="#degrees">degrees(radians)</a></dt>
+<dd><p>A function to convert radians to degrees</p>
 </dd>
 </dl>
 
@@ -112,6 +116,15 @@ A class to create a mesh object
 | config.geometry | <code>Array</code> | Geometry for the mesh |
 | config.material | [<code>Material</code>](#Material) | Material for the mesh |
 
+<a name="Camera"></a>
+
+## Camera
+**Kind**: global class  
+<a name="new_Camera_new"></a>
+
+### new Camera()
+A class for a scene camea
+
 <a name="Transform"></a>
 
 ## Transform
@@ -119,7 +132,7 @@ A class to create a mesh object
 <a name="new_Transform_new"></a>
 
 ### new Transform(config)
-A class for object transofrm data
+A class for object transform data
 
 
 | Param | Type | Description |
@@ -128,6 +141,7 @@ A class for object transofrm data
 | config.position | [<code>Vector3</code>](#Vector3) | Transform position |
 | config.rotation | [<code>Vector3</code>](#Vector3) | Transform Rotation |
 | config.scale | [<code>Vector3</code>](#Vector3) | Transform Scale |
+| config.origin | [<code>Vector3</code>](#Vector3) | Transform Origin |
 
 <a name="Vector2"></a>
 
@@ -265,6 +279,20 @@ A class for creating a shader program from an array of shaders
 | config.context | <code>string</code> | The webgl context for the shader |
 | config.shaders | <code>Array</code> | an array of Shader objects, Will be added to the program in index order |
 
+<a name="Pyramid"></a>
+
+## Pyramid
+**Kind**: global class  
+<a name="new_Pyramid_new"></a>
+
+### new Pyramid(vertices)
+A class for creating a pyramid.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| vertices | <code>Object</code> | Vertices for the triangle geometry |
+
 <a name="Triangle"></a>
 
 ## Triangle
@@ -354,17 +382,6 @@ A class for creating an array buffer.
 | attribute.normalize | <code>string</code> | boolean string to normalize values |
 | attribute.type | <code>string</code> | The element type to bind to the buffer |
 
-<a name="degrees"></a>
-
-## degrees(radians)
-A function to convert radians to degrees
-
-**Kind**: global function  
-
-| Param | Type |
-| --- | --- |
-| radians | <code>number</code> | 
-
 <a name="radians"></a>
 
 ## radians(degrees)
@@ -375,4 +392,15 @@ A function to convert degrees to radians
 | Param | Type |
 | --- | --- |
 | degrees | <code>number</code> | 
+
+<a name="degrees"></a>
+
+## degrees(radians)
+A function to convert radians to degrees
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| radians | <code>number</code> | 
 

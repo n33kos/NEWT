@@ -27,16 +27,16 @@ A class to represent a 3 dimensional square matrix
 | --- | --- | --- |
 | values | <code>number</code> | An array of arrays containing the matrix values |
 
-<a name="degrees"></a>
+<a name="radians"></a>
 
-## degrees(radians)
-A function to convert radians to degrees
+## radians(degrees)
+A function to convert degrees to radians
 
 **Kind**: global function  
 
 | Param | Type |
 | --- | --- |
-| radians | <code>number</code> | 
+| degrees | <code>number</code> | 
 
 <a name="Vector3"></a>
 
@@ -63,16 +63,16 @@ A class to represent a 3 dimensional vector
 ### new Matrix()
 A class containing matrix math functions
 
-<a name="radians"></a>
+<a name="degrees"></a>
 
-## radians(degrees)
-A function to convert degrees to radians
+## degrees(radians)
+A function to convert radians to degrees
 
 **Kind**: global function  
 
 | Param | Type |
 | --- | --- |
-| degrees | <code>number</code> | 
+| radians | <code>number</code> | 
 
 <a name="Vector4"></a>
 

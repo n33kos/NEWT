@@ -15,9 +15,20 @@ export default class {
     this.objects = [];
   }
 
-  add(object) {
-    object.uuid = uuidv4();
-    this.objects.push(object);
+  add(entity) {
+    entity.uuid = uuidv4();
+
+    switch (entity.type) {
+      case 'camera':
+        this.cameras.push(entity);
+        break;
+      case 'mesh':
+        this.objects.push(entity);
+        break;
+      case 'light':
+        this.lights.push(entity);
+        break;
+    }
   }
 
   remove(uuid) {

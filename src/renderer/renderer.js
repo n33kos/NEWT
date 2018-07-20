@@ -6,6 +6,8 @@
  * @param {Context} config.context - WebGL context to render to
  */
 
+import Matrix from '../math/matrix';
+
 export default class {
   constructor({
     scene = [],
@@ -13,6 +15,8 @@ export default class {
   }) {
     this.scene = scene;
     this.context = context;
+    context.enable(context.CULL_FACE);
+    context.enable(context.DEPTH_TEST);
   }
 
   prepareArrayBuffer(object) {
@@ -62,10 +66,13 @@ export default class {
   }
 
   getArrayBufferUniforms(object) {
-    object.transform.calculateTransformMatrix();
     const uniforms = [];
+    let matrix = Matrix.multiply(this.camera.matrix, object.transform.matrix);
+
+    object.transform.calculateTransformMatrix();
+
     uniforms.push({
-      data      : object.transform.matrix.toArray(),
+      data      : matrix.toArray(),
       elements  : 3,
       name      : 'matrix',
       normalize : 'FALSE',
@@ -92,6 +99,12 @@ export default class {
 
   render() {
     canvas.clearCanvas();
+
+    this.scene.cameras.forEach(camera => {
+      camera.calculateProjectionMatrix();
+      this.camera = camera;
+    });
+
     this.scene.objects.forEach(object => {
       this.renderObject(object);
     });

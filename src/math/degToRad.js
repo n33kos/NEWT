@@ -1,7 +1,7 @@
 /**
- * A function to convert radians to degrees
- * @function degrees
- * @param {number} radians
+ * A function to convert degrees to radians
+ * @function radians
+ * @param {number} degrees
  */
 
-export default (radians) => radians * 180 / Math.PI;
+export default (degrees) => degrees * Math.PI / 180;

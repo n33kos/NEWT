@@ -17,5 +17,6 @@ export default class {
     this.geometry = geometry;
     this.material = material;
     this.transform = new Transform({});
+    this.type = 'mesh';
   }
 }
