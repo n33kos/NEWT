@@ -1,7 +1,7 @@
 {
   "name": "NEWT",
-  "version": "0.0.3",
-  "description": "A toolkit to assist WebGL development",
+  "version": "0.0.4",
+  "description": "A WebGL toolkit",
   "main": "dist/NEWT.node.js",
   "scripts": {
     "build": "webpack",

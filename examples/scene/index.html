@@ -20,7 +20,7 @@
       }
     </style>
 
-    <script src="../../dist/NEWT-0.0.3.min.js"></script>
+    <script src="../../dist/NEWT-0.0.4.min.js"></script>
   </head>
 
   <body>
@@ -39,9 +39,6 @@
 
     var scene = new NEWT.Scene();
     var camera = new NEWT.Camera({});
-    camera.transform.setPosition(new NEWT.Vector3(0, 0, 0));
-    camera.transform.scaling(new NEWT.Vector3(1, 1, 1));
-    camera.zoom = 0.5;
     scene.add(camera);
 
     for (var i = 0; i < 20; i++) {

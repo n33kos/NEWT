@@ -20,7 +20,7 @@
       }
     </style>
 
-    <script src="../../dist/NEWT-0.0.3.min.js"></script>
+    <script src="../../dist/NEWT-0.0.4.min.js"></script>
   </head>
 
   <body>
@@ -37,6 +37,10 @@
     });
     var ctx = canvas.context;
 
+    var scene = new NEWT.Scene();
+    var camera = new NEWT.Camera({});
+    scene.add(camera);
+
     var mesh = new NEWT.Mesh({
       material : new NEWT.Material({
         context    : ctx,
@@ -49,8 +53,7 @@
       }),
       geometry : new NEWT.Triangle().vertices,
     });
-
-    var scene = new NEWT.Scene();
+    mesh.transform.translate(new NEWT.Vector3(0.5, 0.5, 0));
     scene.add(mesh);
 
     var renderer = new NEWT.Renderer({
