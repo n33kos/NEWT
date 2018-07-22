@@ -15,16 +15,64 @@ import Vector3 from '../math/vector3';
 
 export default class {
   constructor({
-    origin = new Vector3(0.5, 0.5, 0.5),
-    position = new Vector3(1, 1, 1),
-    rotation = new Vector3(0, 0, 0),
+    origin = new Vector3(),
+    position = new Vector3(),
+    rotation = new Vector3(),
     scale = new Vector3(1, 1, 1),
   }) {
     this.origin = origin;
     this.position = position;
     this.rotation = rotation;
     this.scale = scale;
+    
     this.calculateTransformMatrix(position, rotation, scale, origin);
+  }
+
+  translate(diff) {
+    this.position = new Vector3(
+      this.position.x + diff.x,
+      this.position.y + diff.y,
+      this.position.z + diff.z,
+    );
+    this.calculateTransformMatrix();
+  }
+
+  rotate(diff) {
+    this.rotation = new Vector3(
+      this.rotation.x + diff.x,
+      this.rotation.y + diff.y,
+      this.rotation.z + diff.z,
+    );
+    this.calculateTransformMatrix();
+  }
+
+  scaling(diff) {
+    this.scale = new Vector3(
+      this.scale.x + diff.x,
+      this.scale.y + diff.y,
+      this.scale.z + diff.z,
+    );
+    this.calculateTransformMatrix();
+  }
+
+  setPosition(position) {
+    this.position = position;
+    this.calculateTransformMatrix();
+  }
+
+  setRotation(rotation) {
+    this.rotation = rotation;
+    this.calculateTransformMatrix();
+  }
+
+  setScale(scale) {
+    this.scale = scale;
+    this.calculateTransformMatrix();
+  }
+
+  setOrigin(origin) {
+    this.origin = origin;
+    this.calculateTransformMatrix();
   }
 
   calculateTransformMatrix(
@@ -41,10 +89,10 @@ export default class {
 
     // Multiply the matrices.
     let matrix = new Matrix4();
+    matrix = Matrix.multiply(matrix, originMatrix);
     matrix = Matrix.multiply(matrix, scaleMatrix);
     matrix = Matrix.multiply(matrix, rotationMatrix);
     matrix = Matrix.multiply(matrix, translationMatrix);
-    matrix = Matrix.multiply(matrix, originMatrix);
 
     this.matrix = matrix;
   }

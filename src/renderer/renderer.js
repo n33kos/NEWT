@@ -67,14 +67,19 @@ export default class {
 
   getArrayBufferUniforms(object) {
     const uniforms = [];
-    let matrix = Matrix.multiply(this.camera.matrix, object.transform.matrix);
-
-    object.transform.calculateTransformMatrix();
 
     uniforms.push({
-      data      : matrix.toArray(),
+      data      : object.transform.matrix.toArray(),
       elements  : 3,
       name      : 'matrix',
+      normalize : 'FALSE',
+      type      : 'FLOAT',
+    });
+
+    uniforms.push({
+      data      : this.camera.matrix.toArray(),
+      elements  : 3,
+      name      : 'projection',
       normalize : 'FALSE',
       type      : 'FLOAT',
     });
@@ -101,8 +106,8 @@ export default class {
     canvas.clearCanvas();
 
     this.scene.cameras.forEach(camera => {
-      camera.calculateProjectionMatrix();
       this.camera = camera;
+      if (camera.isActive) camera.calculateProjectionMatrix();
     });
 
     this.scene.objects.forEach(object => {

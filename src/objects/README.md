@@ -20,8 +20,16 @@ A class to create a mesh object
 **Kind**: global class  
 <a name="new_Camera_new"></a>
 
-### new Camera()
+### new Camera(config)
 A class for a scene camea
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| config | <code>Object</code> | configuration object |
+| config.isActive | <code>Boolean</code> | Is camera active |
+| config.transform | <code>Transform</code> | Camera's transform object |
+| config.zoom | <code>Float</code> | Orthographic zoom |
 
 <a name="Transform"></a>
 

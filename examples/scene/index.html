@@ -38,7 +38,11 @@
     var ctx = canvas.context;
 
     var scene = new NEWT.Scene();
-    scene.add(new NEWT.Camera({}));
+    var camera = new NEWT.Camera({});
+    camera.transform.setPosition(new NEWT.Vector3(0, 0, 0));
+    camera.transform.scaling(new NEWT.Vector3(1, 1, 1));
+    camera.zoom = 0.5;
+    scene.add(camera);
 
     for (var i = 0; i < 20; i++) {
       var mesh = new NEWT.Mesh({
@@ -74,12 +78,12 @@
         geometry : new NEWT.Pyramid().vertices,
       });
       let scale = Math.random() * 0.25;
-      mesh.transform.scale.x = scale;
-      mesh.transform.scale.y = scale;
-      mesh.transform.scale.z = scale;
-      mesh.transform.position.x = Math.random() > 0.5 ? Math.random() : -Math.random();
-      mesh.transform.position.y = Math.random() > 0.5 ? Math.random() : -Math.random();
-      mesh.transform.rotation.z = 180;
+      mesh.transform.setScale(new NEWT.Vector3(scale, scale, scale));
+      mesh.transform.setPosition(new NEWT.Vector3(
+        Math.random() > 0.5 ? Math.random() : -Math.random(),
+        Math.random() > 0.5 ? Math.random() : -Math.random(),
+        Math.random() > 0.5 ? Math.random() : -Math.random(),
+      ));
       scene.add(mesh);
     }
 
@@ -90,14 +94,16 @@
 
     function renderLoop() {
       scene.objects.forEach(object => {
-        object.transform.rotation.y += Math.random();
-        object.transform.position.y -= 0.01;
-        if (object.transform.position.y < -1) object.transform.position.y = 1.5;
+        object.transform.rotate(new NEWT.Vector3(1, 1, 1));
+        object.transform.translate(new NEWT.Vector3(0, -0.01, 0));
+        if (object.transform.position.y < -1) {
+          object.transform.setPosition(new NEWT.Vector3(object.transform.position.x, 1.5, object.transform.position.z));
+        }
       });
 
       renderer.render();
       window.requestAnimationFrame(renderLoop);
     }
-    window.requestAnimationFrame(renderLoop);
+    renderLoop();
   </script>
 </html>
