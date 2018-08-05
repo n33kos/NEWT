@@ -18,7 +18,7 @@ module.exports = [
       },
       output: {
           path: path.resolve(__dirname, 'dist'),
-          filename: `NEWT-${process.env.npm_package_version}.min.js`,
+          filename: `NEWT.min.js`,
           library: 'NEWT',
           libraryTarget: 'umd',
           umdNamedDefine: true
